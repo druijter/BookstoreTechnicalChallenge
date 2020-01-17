@@ -1,0 +1,18 @@
+
+Pol  1:46 PM
+Bookstore:
+Task: Create a Bookstore where the user will see every book of the dataset, the user can flip the books on mouseover to see more details of the book itself and can click it to see a bigger image of the book.
+API: https://api.myjson.com/bins/zyv02
+Requirements:
+**The libraries of Bootstrap and FancyBox must be used. If you have not worked with them, take a look. Of course you can use Flexbox if you want.
+**Must include a search engine to search for any field in the book. Whether it be title, description or any other.
+**The logo (look for one in the web) should be on the top left and the search field on the top right.
+**When doing HOVER on each of the covers, it must be rotated to show the title, the description and a "More Info" button (This effect is just CSS- Google is your friend). This button will take you to a more detailed image of the cover (not the same image) that should be shown in a popup/modal and NOT in another website (use FancyBox).
+**Books should be displayed with a little responsive behaviour. No need to fight with media queries, only a little adaptation with Bootstrap or plain flexbox would be enough.
+Resources: 
+Video Preview: https://drive.google.com/file/u/1/d/0B7MuB9FR6W82MF9rVFI4QTlvVmc/view
+FancyBox: http://fancyapps.com/fancybox/3/
+Bootstrap 4: https://getbootstrap.com/docs/4.4/getting-started/introduction/
+getbootstrap.comgetbootstrap.com
+Introduction
+Get started with Bootstrap, the world’s most popular framework for building responsive, mobile-first sites, with BootstrapCDN and a template starter page.
