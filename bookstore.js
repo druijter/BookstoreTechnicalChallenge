@@ -25,11 +25,16 @@
      el: "#app",
      data: {
          bookData: [],
-         bookURL: {        
-         bookURLrow1: [],
-         bookURLrow2: [],
-         bookURLrow3: [],
-         }
+         bookURL: {
+             bookURLrow1: [],
+             bookURLrow2: [],
+             bookURLrow3: [],
+             
+         },
+         titlerow1: [],
+             titlerow2: [],
+             titlerow3: [],
+         
 
      },
      created() {
@@ -42,24 +47,31 @@
              let bookURLrow2 = []
              let bookURLrow3 = []
 
+             let titlerow1 = []
+             let titlerow2 = []
+             let titlerow3 = []
+
              let bookData = this.bookData
 
              let bookLink = bookData.books
 
              for (i = 0; i < bookLink.length; i++) {
 
-                if (i<8){
-                 bookURLrow1   .push(bookLink[i].cover)
-                }
+                 if (i < 8) {
+                     bookURLrow1.push(bookLink[i].cover)
+                     titlerow1.push(bookLink[i].title)
+                 }
 
-             if(i>7 && i <16) {
-                bookURLrow2.push(bookLink[i].cover)
-             }
-             if(i>15 && i <25) {
+                 if (i > 7 && i < 16) {
+                     bookURLrow2.push(bookLink[i].cover)
+                     titlerow2.push(bookLink[i].title)
+                 }
+                 if (i > 15 && i < 25) {
 
 
-                 bookURLrow3.push(bookLink[i].cover)
-             }
+                     bookURLrow3.push(bookLink[i].cover)
+                     titlerow3.push(bookLink[i].title)
+                 }
              }
              console.log(bookURLrow2)
 
