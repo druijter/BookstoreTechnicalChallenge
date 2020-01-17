@@ -52,10 +52,10 @@
                  bookURLrow1   .push(bookLink[i].cover)
                 }
 
-             if(i>8 && i <17) {
+             if(i>7 && i <16) {
                 bookURLrow2.push(bookLink[i].cover)
              }
-             if(i>16 && i <25) {
+             if(i>15 && i <25) {
 
 
                  bookURLrow3.push(bookLink[i].cover)
