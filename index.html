@@ -73,24 +73,39 @@
 
     <div id=app>
 
+        <!-- <div v-for="book in bookData.books">
+            {{book.title}}
+        </div> -->
+
         <div class="container-fluid ">
             <div class="row justify-content-center">
                 <!-- bookrow1 -->
                 <div class="divvie col-md-3 panel-pad-10">
-                    <div v-for="url in bookURL.bookURLrow1" class="panel panel-default">
+                    <div v-for="book in bookData.books" class="panel panel-default">
 
                         <div class="flip-box">
                             <div class="flip-box-inner">
 
 
 
-                                <div class="flip-box-front panel-body"><img :src="url">
+                                <div class="flip-box-front panel-body">
+                                    <img :src="book.cover">
                                 </div>
 
 
 
-                                <div v-for="x in bookData.books" class="flip-box-back">
-                                    <span>title: {{x.title}}</span>
+                                <div  class="flip-box-back h4">
+                                    <br>
+                                    <br>
+                                    <span><b>title:</b> {{book.title}}</span>
+                                    <br>
+                                    <br>
+                                    <span><b>description:</b> {{book.description}}</span>
+                                    <br>
+                                    <br>
+                                    <span><b>language:</b> {{book.language}}</span>
+                                    <br>
+                                    <br>
                                     <button type="button" class="btn btn-danger">
                                         More information</button>
                                 </div>
@@ -99,7 +114,7 @@
                     </div>
                 </div>
                 <!-- bookrow2 -->
-                <div class="divvie col-md-3 panel-pad-10">
+                <!-- <div class="divvie col-md-3 panel-pad-10">
                     <div v-for="url in bookURL.bookURLrow2" class="panel panel-default">
                         <div class="flip-box">
                             <div class="flip-box-inner">
@@ -112,16 +127,27 @@
 
 
 
-                                <div v-for="x in bookData.books" class="flip-box-back">
-                                    <span>title: {{x.title}}</span>
-                                    <button type="button" class="btn btn-danger">More information</button>
+                                <div v-for="x in bookData.books" class="flip-box-back h4">
+                                    <br>
+                                    <br>
+                                    <span><b>title:</b> {{x.title}}</span>
+                                    <br>
+                                    <br>
+                                    <span><b>description:</b> {{x.description}}</span>
+                                    <br>
+                                    <br>
+                                    <span><b>language:</b> {{x.language}}</span>
+                                    <br>
+                                    <br>
+                                    <button type="button" class="btn btn-danger">
+                                        More information</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- bookrow3 -->
-                <div class="divvie col-md-3 panel-pad-10">
+                <!-- <div class="divvie col-md-3 panel-pad-10">
                     <div v-for="url in bookURL.bookURLrow3" class="panel panel-default">
                         <div class="flip-box">
                             <div class="flip-box-inner">
@@ -133,16 +159,27 @@
 
 
 
-                                <div v-for="x in bookData.books" class="flip-box-back">
-                                    <span>title: {{x.title}}</span>
-                                    <button type="button" class="btn btn-danger">More information</button>
+                                <div v-for="x in bookData.books" class="flip-box-back h4">
+                                    <br>
+                                    <br>
+                                    <span><b>title:</b> {{x.title}}</span>
+                                    <br>
+                                    <br>
+                                    <span><b>description:</b> {{x.description}}</span>
+                                    <br>
+                                    <br>
+                                    <span><b>language:</b> {{x.language}}</span>
+                                    <br>
+                                    <br>
+                                    <button type="button" class="btn btn-danger">
+                                        More information</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
 
         <!-- <table class="table table-striped table-hover w-75 ">
