@@ -5,16 +5,20 @@ const app = new Vue({
     el: "#app",
     data: {
         bookData: [],
-        bookDataNotFetched: [],
+        bookDataFiltered: [],
         message: "",
         bookURL: {
             bookURLrow: [],
         },
     },
 
-    // computed(){
+    computed: {
+        compareMessage() {
+            console.log(this.message === "")
+        }
 
-    // },
+
+    },
 
     created() {
         this.fetchData(url)
@@ -27,32 +31,36 @@ const app = new Vue({
         searchFunction() {
 
             let bookData = this.bookData.books
-            let bookDataNotFetched = []
-            bookDataNotFetched.books = []
-            let bookDataFiltered = this.bookData.books
+            let bookDataFiltered = []
+            bookDataFiltered.books = []
+            let bookDataCompareVariable = this.bookData.books
 
-            // console.log(bookDataFiltered)
-
-
+            // console.log(bookDataCompareVariable)
 
 
-            for (i = 0; i < bookDataFiltered.length; i++) {
+
+
+            for (i = 0; i < bookDataCompareVariable.length; i++) {
 
                 //check for includes rather than match, and adjust to be non-case-sensitive
-                if (bookDataFiltered[i].title.toUpperCase().includes(this.message.toUpperCase()) || bookDataFiltered[i].description.toUpperCase().includes(this.message.toUpperCase()) || bookDataFiltered[i].language.toUpperCase().includes(this.message.toUpperCase())) {
+                if (bookDataCompareVariable[i].title.toUpperCase().includes(this.message.toUpperCase()) || bookDataCompareVariable[i].description.toUpperCase().includes(this.message.toUpperCase()) || bookDataCompareVariable[i].language.toUpperCase().includes(this.message.toUpperCase())) {
 
 
                     //change to be a push method
-                    bookDataNotFetched.books.push(bookDataFiltered[i])
+                    bookDataFiltered.books.push(bookDataCompareVariable[i])
 
 
                 }
+                console.log(this.message === "")
 
 
+                if (this.message === "") {
+                    this.bookDataFiltered = this.bookData
+                }
 
             }
 
-            this.bookDataNotFetched = bookDataNotFetched
+            this.bookDataFiltered = bookDataFiltered
 
 
 
@@ -75,9 +83,7 @@ const app = new Vue({
                     return data
                 })
                 .catch(error => console.log(error))
-            this.bookDataNotFetched = this.bookData
-
-            // this.showBook()
+            this.bookDataFiltered = this.bookData
 
         }
     }
