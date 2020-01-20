@@ -21,11 +21,18 @@ const app = new Vue({
     },
 
     created() {
+        
         this.fetchData(url)
+       
     },
 
 
     methods: {
+        showDefault (){
+            console.log("keyyy")
+            if (this.message==="")
+            this.bookDataFiltered = this.bookData
+        },
 
 
         searchFunction() {
