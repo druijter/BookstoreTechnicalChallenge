@@ -2,92 +2,84 @@ let url = "https://api.myjson.com/bins/zyv02"
 
 
 const app = new Vue({
-            el: "#app",
-            data: {
-                bookData: [],
-                bookDataNotFetched: [],
-                message: "",
-                bookURL: {
-                    bookURLrow: [],
-                },
-            },
+    el: "#app",
+    data: {
+        bookData: [],
+        bookDataNotFetched: [],
+        message: "",
+        bookURL: {
+            bookURLrow: [],
+        },
+    },
 
-            // computed(){
-                
-            // },
+    // computed(){
 
-            created() {
-                this.fetchData(url)
-            },
+    // },
 
-
-            methods: {
-            
-
-                searchFunction() {
-
-                    let bookData = this.bookData.books
-                    let bookDataNotFetched = []
-                    bookDataNotFetched.books = []
-                    let bookDataFiltered = this.bookData.books
-                    
-                    // console.log(bookDataFiltered)
+    created() {
+        this.fetchData(url)
+    },
 
 
+    methods: {
 
 
-                    for (i = 0; i < bookDataFiltered.length; i++) {
+        searchFunction() {
 
-                        // console.log("hi")
-                        // '==' exact match. consider using .includes()
-                        // console.log(this.message == bookDataFiltered.books[i].title)
+            let bookData = this.bookData.books
+            let bookDataNotFetched = []
+            bookDataNotFetched.books = []
+            let bookDataFiltered = this.bookData.books
 
-                        //check for includes rather than match, and adjust to be non-case-sensitive
-                        if (this.message == bookDataFiltered[i].title) {
-                            // console.log("sdsdssdsdsd")
-
-                            //change to be a push method
-                            bookDataNotFetched.books.push(bookDataFiltered[i])
-                            // console.log('bookDataNotFetched: ', bookDataNotFetched)
-                            
-                            // // console.log(i)
-                            // console.log(bookDataNotFetched)
-                            // console.log(bookData)
-
-                        } 
-                        
+            // console.log(bookDataFiltered)
 
 
-                    }
-                    console.log(bookDataNotFetched)
-                          this.bookDataNotFetched = bookDataNotFetched
-                         
-
-                   
-
-                    },
 
 
-                    // //Fetch the data from the Propublica website//
-                    async fetchData(url) {
+            for (i = 0; i < bookDataFiltered.length; i++) {
 
-                        this.bookData = await fetch(url, {
-                                method: 'GET',
+                //check for includes rather than match, and adjust to be non-case-sensitive
+                if (bookDataFiltered[i].title.toUpperCase().includes(this.message.toUpperCase()) || bookDataFiltered[i].description.toUpperCase().includes(this.message.toUpperCase()) || bookDataFiltered[i].language.toUpperCase().includes(this.message.toUpperCase())) {
 
-                            })
-                            .then(response => response.json()
 
-                            )
+                    //change to be a push method
+                    bookDataNotFetched.books.push(bookDataFiltered[i])
 
-                            .then(data => {
-                                return data
-                            })
-                            .catch(error => console.log(error))
-                            this.bookDataNotFetched = this.bookData
-                        
-                        // this.showBook()
 
-                    }
                 }
 
-            })
+
+
+            }
+
+            this.bookDataNotFetched = bookDataNotFetched
+
+
+
+
+        },
+
+
+        // //Fetch the data from the Propublica website//
+        async fetchData(url) {
+
+            this.bookData = await fetch(url, {
+                    method: 'GET',
+
+                })
+                .then(response => response.json()
+
+                )
+
+                .then(data => {
+                    return data
+                })
+                .catch(error => console.log(error))
+            this.bookDataNotFetched = this.bookData
+
+            // this.showBook()
+
+        }
+    }
+
+})
