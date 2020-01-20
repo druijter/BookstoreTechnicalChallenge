@@ -12,9 +12,9 @@ const app = new Vue({
                 },
             },
 
-            computed(){
+            // computed(){
                 
-            },
+            // },
 
             created() {
                
