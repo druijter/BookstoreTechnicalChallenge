@@ -6,14 +6,14 @@
      el: "#app",
      data: {
          bookData: [],
-        //  bookURL: {
-        //      bookURLrow: [],
+         bookURL: {
+             bookURLrow: [],
         //      titlerow: [],
         //      descriptionrow: [],
         //      languagerow: [],
      
 
-        //  },
+         },
 
         
        
@@ -25,12 +25,14 @@
 
      methods: {
          showBook() {
-            //  let bookURLrow = []
+             let bookURLrow = []
             //  let titlerow = []
             //  let descriptionrow = []
             //  let languagerow = []
              let bookData = this.bookData
+             
              let bookLink = bookData.books
+             console.log(bookLink[0].cover)
 
              for (i = 0; i < bookLink.length; i++) {
 
@@ -45,6 +47,7 @@
 
 
              this.bookURL.bookURLrow = bookURLrow
+             console.log(bookURLrow)
              
             //  this.titlerow = titlerow
     
