@@ -140,12 +140,13 @@
 
             
             <label for="inputField"></label>
-            <input type="text" value="search for a book" placeholder="dsd" id="inputField">
+            <input type="text" placeholder  ="search for a book" v-model="message" id="inputField" v-on:change="searchFunction">
+            <p>Message is: {{ message }}</p>
         </div>
         <hr>
         <div class="container2">
 
-            <div v-for="book in bookData.books" class="flip-box">
+            <div v-for="book in bookDataNotFetched.books" class="flip-box">
 
                 <!-- <div class="flip-box"> -->
                 <div class="flip-box-inner">

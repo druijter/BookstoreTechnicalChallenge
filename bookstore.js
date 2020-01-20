@@ -1,82 +1,77 @@
-
- let url = "https://api.myjson.com/bins/zyv02"
-
-
- const app = new Vue({
-     el: "#app",
-     data: {
-         bookData: [],
-         bookURL: {
-             bookURLrow: [],
-        //      titlerow: [],
-        //      descriptionrow: [],
-        //      languagerow: [],
-     
-
-         },
-
-        
-       
-
-     },
-     created() {
-         this.fetchData(url)
-     },
-
-     methods: {
-         showBook() {
-             let bookURLrow = []
-            //  let titlerow = []
-            //  let descriptionrow = []
-            //  let languagerow = []
-             let bookData = this.bookData
-             
-             let bookLink = bookData.books
-             console.log(bookLink[0].cover)
-
-             for (i = 0; i < bookLink.length; i++) {
+let url = "https://api.myjson.com/bins/zyv02"
 
 
-                 bookURLrow.push(bookLink[i].cover)
-                //   titlerow.push(bookLink[i].title)
-                //   descriptionrow.push(bookLink[i].description)
-                //   languagerow.push(bookLink[i].language)
-                //   console.log(bookLink[i].description)
-        
-             }
+const app = new Vue({
+            el: "#app",
+            data: {
+                bookData: [],
+                bookDataNotFetched: [],
+                message: "",
+                bookURL: {
+                    bookURLrow: [],
+                },
+            },
+
+            created() {
+                this.fetchData(url)
+
+            },
 
 
-             this.bookURL.bookURLrow = bookURLrow
-             console.log(bookURLrow)
-             
-            //  this.titlerow = titlerow
-    
-            //  this.descriptionrow = descriptionrow
-          
-            //  this.languagerow = languagerow
-     
+            methods: {
+            
+
+                searchFunction() {
+
+                    let bookData = this.bookData
+                    let bookDataNotFetched = []
+                    let bookDataFiltered = this.bookData
+                    console.log(bookDataFiltered)
 
 
-         },
 
 
-         // //Fetch the data from the Propublica website//
-         async fetchData(url) {
+                    for (i = 0; i < bookDataFiltered.books.length; i++) {
 
-             this.bookData = await fetch(url, {
-                     method: 'GET',
+                        console.log("hi")
 
-                 })
-                 .then(response => response.json()
+                        if (this.message == bookDataFiltered.books[i].title) {
+                            bookDataNotFetched.push(bookDataFiltered.books[i])
+                            console.log(bookDataFiltered.books[i])
 
-                 )
+                        } 
+                        
 
-                 .then(data => {
-                     return data
-                 })
-                 .catch(error => console.log(error))
-             this.showBook()
-         }
-     }
 
- })
+                    }
+                    console.log(bookDataNotFetched)
+                          this.bookDataNotFetched = bookDataNotFetched
+                          console.log(this.bookDataNotFetched[0])
+
+                   
+
+                    },
+
+
+                    // //Fetch the data from the Propublica website//
+                    async fetchData(url) {
+
+                        this.bookData = await fetch(url, {
+                                method: 'GET',
+
+                            })
+                            .then(response => response.json()
+
+                            )
+
+                            .then(data => {
+                                return data
+                            })
+                            .catch(error => console.log(error))
+                        this.bookDataNotFetched = this.bookData
+                        // this.showBook()
+
+                    }
+                }
+
+            })
