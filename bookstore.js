@@ -17,9 +17,7 @@ const app = new Vue({
             // },
 
             created() {
-               
                 this.fetchData(url)
-
             },
 
 
@@ -28,27 +26,33 @@ const app = new Vue({
 
                 searchFunction() {
 
-                    let bookData = this.bookData
+                    let bookData = this.bookData.books
                     let bookDataNotFetched = []
-                    let bookDataFiltered = this.bookData
-                    console.log(bookDataFiltered)
+                    bookDataNotFetched.books = []
+                    let bookDataFiltered = this.bookData.books
+                    
+                    // console.log(bookDataFiltered)
 
 
 
 
-                    for (i = 0; i < bookDataFiltered.books.length; i++) {
+                    for (i = 0; i < bookDataFiltered.length; i++) {
 
-                        console.log("hi")
+                        // console.log("hi")
+                        // '==' exact match. consider using .includes()
+                        // console.log(this.message == bookDataFiltered.books[i].title)
 
-                        console.log(this.message == bookDataFiltered.books[i].title)
+                        //check for includes rather than match, and adjust to be non-case-sensitive
+                        if (this.message == bookDataFiltered[i].title) {
+                            // console.log("sdsdssdsdsd")
 
-                        if (this.message == bookDataFiltered.books[i].title) {
-                            console.log("sdsdssdsdsd")
-                            bookDataNotFetched = {books: bookDataFiltered.books[i]}
+                            //change to be a push method
+                            bookDataNotFetched.books.push(bookDataFiltered[i])
+                            // console.log('bookDataNotFetched: ', bookDataNotFetched)
                             
-                            console.log(i)
-                            console.log(bookDataNotFetched)
-                            console.log(bookData)
+                            // // console.log(i)
+                            // console.log(bookDataNotFetched)
+                            // console.log(bookData)
 
                         } 
                         
