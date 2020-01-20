@@ -12,7 +12,12 @@ const app = new Vue({
                 },
             },
 
+            computed(){
+                
+            },
+
             created() {
+               
                 this.fetchData(url)
 
             },
@@ -35,9 +40,15 @@ const app = new Vue({
 
                         console.log("hi")
 
+                        console.log(this.message == bookDataFiltered.books[i].title)
+
                         if (this.message == bookDataFiltered.books[i].title) {
-                            bookDataNotFetched.push(bookDataFiltered.books[i])
-                            console.log(bookDataFiltered.books[i])
+                            console.log("sdsdssdsdsd")
+                            bookDataNotFetched = {books: bookDataFiltered.books[i]}
+                            
+                            console.log(i)
+                            console.log(bookDataNotFetched)
+                            console.log(bookData)
 
                         } 
                         
@@ -46,7 +57,7 @@ const app = new Vue({
                     }
                     console.log(bookDataNotFetched)
                           this.bookDataNotFetched = bookDataNotFetched
-                          console.log(this.bookDataNotFetched[0])
+                         
 
                    
 
@@ -68,7 +79,8 @@ const app = new Vue({
                                 return data
                             })
                             .catch(error => console.log(error))
-                        this.bookDataNotFetched = this.bookData
+                            this.bookDataNotFetched = this.bookData
+                        
                         // this.showBook()
 
                     }
